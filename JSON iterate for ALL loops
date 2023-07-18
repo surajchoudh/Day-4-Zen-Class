@@ -1,0 +1,85 @@
+******************************************JSON iterate over All For loops**********************************************
+git commit -m "first commit"
+
+JSON stands for JavaScript Object Notation. It’s a light format for storing and transferring data from one place to another.
+ So in looping, it is one of the most commonly used techniques for transporting data that is the array format or in attribute values. 
+Here’s an example that demonstrates the above concept.
+
+{% code-block language="js" %}
+jsonData ={
+   one: [11, 12, 13, 14, 15],git
+   two: [21, 22, 23],
+   three: [31, 32]
+}
+‍{% code-block-end %}
+JavaScript Object Notation also consists of a root, namely, the jsonData. It further contains three nodes that are called, “one”, “two”,
+ and “three”. 
+Here’s how you can withdraw a piece of information from JSON:
+
+{% code-block language="js" %}
+var json = {
+   one: [11, 12, 13, 14, 15],
+   two: [21, 22, 23],
+   three: [31, 32]
+}
+};
+for(var key in json.jsonData) {
+   for (var key1 in json.jsonData[key]) {
+       console.log(json.jsonData[key][key1])
+   }
+}
+‍{% code-block-end %}
+Above, I used two For In Loops to make use of JSON and extract information from it. One of those loops is the outer loop that runs 
+three times. If you’re wondering why it needs to run three times, that’s because it has to cover the above-mentioned nodes.
+
+The second loop is the inner loop which is meant to cover all the internal values. These internal values are those which are inside 
+the three nodes. Once you run the code, you will get these kinds of results:
+
+OUTPUT:-
+
+11
+12
+13
+14
+15
+21
+22
+23
+31
+32
+JSON Explained
+
+
+If we go further in depth, there are a few more things you need to know about JSON.  The code that we just ran can also be expressed 
+by including ‘[]’ to contain the above three nodes.
+
+Here’s how it’s done:
+
+{% code-block language="js" %}
+jsonData:  [
+   one: [11, 12, 13, 14, 15],
+   two: [21, 22, 23],
+   three: [31, 32]
+]
+‍{% code-block-end %}
+Then, in the following piece of code, a blend of the two looping techniques of For and For In are used to withdraw all the 
+information from JSON.
+
+{% code-block language="js" %}
+var json = {
+   jsonData:  [
+       {one: [11, 12, 13, 14, 15]},
+       {two: [21, 22, 23]},
+       {three: [31, 32]}
+   ]
+}; 
+for (var i=0; i<json.jsonData.length; i++) {
+   for (var key in json.jsonData[i]) {
+       for (var j= 0; j<json.jsonData[i][key].length; j++) {
+           console.log(json.jsonData[i][key][j])
+       }
+   }
+}
+‍{% code-block-end %}
+
+
